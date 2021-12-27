@@ -11,9 +11,7 @@ import { EquipoService } from 'src/app/service/equipo.service';
 })
 export class HistorialViajeComponent implements OnInit {
 
-  infoTablaViaje: EstadoViaje[] = [
-    //{fecha: "1-01", marca: 'Dell', modelo: 'G3 15 Gaming', estadoEquipo: 'A Reparar', estadoEnvio: 'Pendiente a retirar'}
-  ];
+  infoTablaViaje: EstadoViaje[] = [];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 

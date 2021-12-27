@@ -11,7 +11,7 @@ export class UsuarioGuard implements CanActivate {
     canActivate() {
         
         if (!localStorage.getItem('UsuarioId')) {
-            console.log('No estás logueado');
+            //No estás logueado
             this.router.navigateByUrl('/home');
             return false;
         }

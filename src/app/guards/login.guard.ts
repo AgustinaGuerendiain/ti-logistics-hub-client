@@ -11,7 +11,7 @@ export class LoginGuard implements CanActivate {
     canActivate() {
         
         if (localStorage.getItem('UsuarioId')) {
-            console.log('Ya estás logueado');
+           //Ya estás logueado
             this.router.navigateByUrl('/home');
             return false;
         }

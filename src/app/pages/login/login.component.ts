@@ -36,10 +36,6 @@ export class LoginComponent {
       localStorage.setItem('UsuarioId', JSON.stringify(resp.id));
       localStorage.setItem('UsuarioName', JSON.stringify(resp.fullName));
 
-      let nombreUsuario = localStorage.getItem('UsuarioName');
-      let email = localStorage.getItem('UsuarioIn');
-      let id = localStorage.getItem('UsuarioId');
-
       this.loginForm.reset();
 
       this._router.navigateByUrl('/home');
@@ -47,7 +43,6 @@ export class LoginComponent {
     }, error => {
 
       this.loginForm.reset();
-      console.log(error);
 
     });
 

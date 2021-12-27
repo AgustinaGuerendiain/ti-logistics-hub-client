@@ -27,16 +27,12 @@ export class SolicitarViajeComponent {
 
   solicitar(){
     this.equipo = this.formSolicitarRetiro.value;
-    console.log(this.equipo)
 
-   this.equipoService.solicitarReparacion(this.equipo).subscribe( resp => {
+    this.equipoService.solicitarReparacion(this.equipo).subscribe( resp => {
      
-    console.log(resp)
-
     });
 
     this.formSolicitarRetiro.reset();
-
   }
 
   openSnackBar() {

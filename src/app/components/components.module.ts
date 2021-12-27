@@ -15,7 +15,8 @@ import { MaterialModule } from '../material.module';
   imports: [
     CommonModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule
   ],
   exports: [
     HeaderComponent,

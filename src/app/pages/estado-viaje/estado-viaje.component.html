@@ -1,0 +1,58 @@
+<app-header></app-header>
+
+<mat-sidenav-container>
+
+ 
+
+  <div class="contenedor-estado-viaje">
+
+    <mat-form-field appearance="standard">
+      <mat-label>Filtro</mat-label>
+      <input autocomplete="off" matInput (keyup)="applyFilter($event)" placeholder="Filtro" #input>
+    </mat-form-field>
+    
+  </div>
+
+  <div class="contenedor-estado-viaje mat-elevation-z2">
+    
+    <table mat-table [dataSource]="dataSource" >
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef> Fecha </th>
+        <td mat-cell *matCellDef="let element"> {{(element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].operationDate).slice(0,-17)}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="marca">
+        <th mat-header-cell *matHeaderCellDef> Marca </th>
+        <td mat-cell *matCellDef="let element"> {{element.mark}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="modelo">
+        <th mat-header-cell *matHeaderCellDef> Modelo </th>
+        <td mat-cell *matCellDef="let element"> {{element.model}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="estado del equipo">
+        <th mat-header-cell *matHeaderCellDef> Estado del Equipo </th>
+        <td mat-cell *matCellDef="let element"> {{saberEstadoEquipo(element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel)}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="estado del envio">
+          <th mat-header-cell *matHeaderCellDef> Estado del Envío </th>
+          <td mat-cell *matCellDef="let element">  {{ESTADOS[element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel]}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons 
+                 aria-label="Select page of dataSource">
+    </mat-paginator> 
+
+  </div>
+
+
+</mat-sidenav-container>
+
+<app-footer></app-footer>

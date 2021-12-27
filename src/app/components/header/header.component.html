@@ -1,0 +1,42 @@
+
+<mat-toolbar color="primary">
+
+    <h1>Todo IT</h1>
+
+    <span class="example-spacer"></span>
+      
+    <button (click)="opened=!opened" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon> 
+    </button>
+
+</mat-toolbar>
+
+<mat-sidenav [(opened)] ="opened">
+    <nav>
+        <ul>
+
+            <li><a [routerLink]="['/home']" routerLinkActive="router-link-active">Inicio</a></li>
+            
+            <li *ngIf="!existeSesion()"><a [routerLink]="['/login']" routerLinkActive="router-link-active">Iniciar sesión</a></li>
+
+            <mat-divider></mat-divider>
+
+            <div *ngIf="existeSesion()">
+
+                <li><a [routerLink]="['/soliticar-viaje']" routerLinkActive="router-link-active">Solicitar viaje</a></li>
+                <li><a [routerLink]="['/estado-viaje']" routerLinkActive="router-link-active">Estado del viaje</a></li>
+                <li><a [routerLink]="['/historial-viaje']" routerLinkActive="router-link-active">Historial de viajes</a></li>
+
+                <mat-divider></mat-divider>
+                
+                <li><a (click)="cerrarSesion()">Cerrar sesión</a></li>
+
+            </div>
+
+        </ul>
+    </nav>
+</mat-sidenav>
+
+ 
+
+

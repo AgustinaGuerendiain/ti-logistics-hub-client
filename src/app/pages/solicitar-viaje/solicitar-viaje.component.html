@@ -1,0 +1,43 @@
+
+ <app-header></app-header> 
+  
+ <mat-sidenav-container>
+
+    <div class="contenedor-solicitar">
+
+        <div class="solicitar-retiro">
+           
+            <form [formGroup]="formSolicitarRetiro" (ngSubmit)="solicitar()">
+    
+                <img src="../../../assets/herramientas-para-reparar.png" alt="" width="50%">
+                <h1>Solicitar retiro de equipo</h1>
+    
+                <mat-form-field class="ancho" appearance="fill">
+                    <mat-label>Marca</mat-label>
+                    <input type="text" matInput required autocomplete="off" formControlName="marca">
+                </mat-form-field>
+            
+                <mat-form-field class="ancho" appearance="fill">
+                    <mat-label>Modelo</mat-label>
+                    <input type="text" matInput required autocomplete="off" formControlName="modelo">
+                </mat-form-field>
+              
+                <mat-form-field class="ancho" appearance="fill">
+                    <mat-label>Falla</mat-label>
+                    <input type="text" matInput required autocomplete="off" formControlName="falla">
+                </mat-form-field>
+
+                <button type="submit" class="button ancho" mat-raised-button color="primary"
+                mat-stroked-button (click)="openSnackBar()">
+                    Solicitar
+                </button>
+                     <!-- [disabled] agregar eso al boton si el form es invalid -->
+
+            </form>
+
+        </div>
+        
+    </div>
+    
+</mat-sidenav-container>
+<app-footer></app-footer>
